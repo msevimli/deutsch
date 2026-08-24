@@ -35,7 +35,8 @@ function db(): PDO
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             kategorie TEXT NOT NULL,
             deutsch TEXT NOT NULL UNIQUE,
-            tuerkisch TEXT NOT NULL
+            tuerkisch TEXT NOT NULL,
+            markdown TEXT NOT NULL DEFAULT \'\'
         )');
 
         $pdo->exec('CREATE TABLE IF NOT EXISTS seeded_files (
@@ -61,6 +62,9 @@ function migrateSchema(PDO $pdo): void
     }
     if (!isset($names['satz_tuerkisch'])) {
         $pdo->exec("ALTER TABLE words ADD COLUMN satz_tuerkisch TEXT NOT NULL DEFAULT ''");
+    }
+    if (!isset($names['markdown'])) {
+        $pdo->exec("ALTER TABLE words ADD COLUMN markdown TEXT NOT NULL DEFAULT ''");
     }
 
     $seededCols = $pdo->query('PRAGMA table_info(seeded_files)')->fetchAll(PDO::FETCH_ASSOC);
