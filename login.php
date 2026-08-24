@@ -27,20 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $error = 'Invalid username or password.';
 }
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Login</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<nav>
-  <a href="index.php" class="brand">MySite</a>
-  <div><a href="index.php">Home</a></div>
-</nav>
+$pageTitle = 'Login';
+require __DIR__ . '/header.php'; ?>
 
 <div class="card">
   <h1>Sign in</h1>

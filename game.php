@@ -26,20 +26,8 @@ shuffle($words);
 
 $jsonFlags = JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT;
 $username  = htmlspecialchars($_SESSION['username']);
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Word Trainer</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<nav>
-  <a href="index.php" class="brand">MySite</a>
-  <div><a href="dashboard.php">Dashboard</a><a href="logout.php">Logout</a></div>
-</nav>
+$pageTitle = 'Word Trainer';
+require __DIR__ . '/header.php'; ?>
 
 <main class="game">
   <div class="game-head">
